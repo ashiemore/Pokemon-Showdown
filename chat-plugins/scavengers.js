@@ -34,7 +34,7 @@ exports.commands = {
 		if (room.id !== 'scavengers') return this.sendReply('This command can only be used in the Scavengers room.');
 		if (!this.can('mute', null, room)) return false;
 		if (scavengers.status === 'on') return this.sendReply('There is already an active scavenger hunt.');
-		var targets = target.split(',');
+		var targets = target.split('|');
 		if (!targets[0] || !targets[1] || !targets[2] || !targets[3] || !targets[4] || !targets[5] || targets[6]) {
 			return this.sendReply('You must specify three hints and three answers.');
 		}
@@ -141,8 +141,8 @@ exports.commands = {
 			'- /scavengerstatus - Get your current game status<br />' +
 			'<br />' +
 			'<strong>Staff commands:</strong><br />' +
-			'- /starthunt <em>hint, answer, hint, answer, hint, answer</em> - Start a new scavenger hunt (Requires: % @ # & ~)<br />' +
-			'- /startofficialhunt <em>hint, answer, hint, answer, hint, answer</em> - Start an official hunt with 60 seconds blitz period (Requires: @ # & ~)<br />' +
+			'- /starthunt <em>hint|answer|hint|answer|hint|answer</em> - Start a new scavenger hunt (Requires: % @ # & ~)<br />' +
+			'- /startofficialhunt <em>hint|answer|hint|answer|hint|answer</em> - Start an official hunt with 60 seconds blitz period (Requires: @ # & ~)<br />' +
 			'- /endhunt - Finish the current hunt and announce the winners (Requires: % @ # & ~)<br />' +
 			'- /resethunt - Reset the scavenger hunt to mint status (Requires: % @ # & ~)'
 		);
